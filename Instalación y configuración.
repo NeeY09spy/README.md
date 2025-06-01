@@ -1,1 +1,14 @@
-
+Instalación y configuración
+Requisitos
+JDK 11
+IntelliJ IDEA
+Git
+Instalación del JDK
+Visita Java SE Development Kit 11 Descargas .
+Descargue e instale el JDK 11 según su sistema operativo.
+Instalación de IntelliJ IDEA
+Visita JetBrains IntelliJ IDEA .
+Descargue e instale IntelliJ IDEA Community o Ultimate.
+Instalación de Git
+Visita Descargas de Git SCM .
+Descarga e instala Git según tu sistema operativo.
