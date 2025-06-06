@@ -1,0 +1,38 @@
+db/
+ ├── doctores.json
+ ├── pacientes.json
+ ├── citas.json
+ ├── config.properties
+ ├── .gitignore
+
+
+[
+    {
+        "idDoctor": 1,
+        "nombre": "Dr. Juan Pérez",
+        "especialidad": "Cardiología"
+    }
+]
+
+
+  [
+    {
+        "idPaciente": 101,
+        "nombre": "Ana López",
+        "edad": 30,
+        "historialMedico": "Sin antecedentes"
+    }
+]
+
+  [
+    {
+        "idCita": 201,
+        "fecha": "2025-06-10",
+        "hora": "10:00",
+        "doctor": "Dr. Juan Pérez",
+        "paciente": "Ana López"
+    }
+]
+
+  db/*.json
+db/config.properties
