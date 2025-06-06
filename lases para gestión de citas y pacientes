@@ -1,0 +1,78 @@
+Clase Persona 
+java
+abstract class Persona {
+    protected String nombre;
+    protected int edad;
+    protected String direccion;
+}
+Clase Doctor (Hereda de Persona)
+java
+class Doctor extends Persona {
+    private String especialidad;
+    private int idDoctor;
+
+    public void registrarCita() {}
+    public void consultarHistorial() {}
+}
+Clase Paciente (Hereda de Persona)
+java
+class Paciente extends Persona {
+    private int idPaciente;
+    private String historialMedico;
+
+    public void solicitarCita() {}
+    public void verHistorial() {}
+}
+Clase Cita
+java
+class Cita {
+    private int idCita;
+    private String fecha;
+    private String hora;
+    private Doctor doctor;
+    private Paciente paciente;
+
+    public void confirmarCita() {}
+    public void cancelarCita() {}
+}
+Clase RegistroMedico
+java
+class RegistroMedico {
+    private Paciente paciente;
+    private String historial;
+
+    public void agregarRegistro() {}
+    public void obtenerRegistro() {}
+}
+4. Pseudocódigo del Programa
+plaintext
+INICIO
+    Mostrar menú:
+        1. Registrar Doctor
+        2. Registrar Paciente
+        3. Crear Cita
+        4. Consultar Historial Médico
+        5. Salir
+    Leer opción del usuario
+    
+    Si opción == 1
+        Solicitar datos del doctor
+        Guardar en sistema
+    FinSi
+
+    Si opción == 2
+        Solicitar datos del paciente
+        Guardar en sistema
+    FinSi
+
+    Si opción == 3
+        Solicitar datos de la cita
+        Asociar doctor y paciente
+        Guardar cita
+    FinSi
+
+    Si opción == 4
+        Solicitar ID del paciente
+        Mostrar historial médico
+    FinSi
+FIN
