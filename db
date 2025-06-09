@@ -1,3 +1,125 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+
+// Clase Doctor
+class Doctor {
+    private String nombre;
+    private String especialidad;
+
+    public Doctor(String nombre, String especialidad) {
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Dr. " + nombre + " - Especialidad: " + especialidad);
+    }
+}
+
+// Clase Paciente
+class Paciente {
+    private String nombre;
+    private int edad;
+
+    public Paciente(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Paciente: " + nombre + " - Edad: " + edad);
+    }
+}
+
+// Clase Cita
+class Cita {
+    private Doctor doctor;
+    private Paciente paciente;
+    private LocalDate fecha;
+
+    public Cita(Doctor doctor, Paciente paciente, LocalDate fecha) {
+        this.doctor = doctor;
+        this.paciente = paciente;
+        this.fecha = fecha;
+    }
+
+    public void agendarCita() {
+        System.out.println("Cita programada: " + fecha + " - Paciente: " + paciente.getNombre() + " con el Dr. " + doctor.getNombre());
+    }
+}
+
+// Clase DatabaseValidator (Valida la existencia de archivos en db/)
+class DatabaseValidator {
+    private static final String DB_FOLDER = "db/";
+    private static final String[] REQUIRED_FILES = {"doctores.txt", "pacientes.txt", "citas.txt"};
+
+    public static void validarYGenerarArchivos() {
+        File folder = new File(DB_FOLDER);
+        if (!folder.exists()) {
+            folder.mkdir();
+            System.out.println("Carpeta db creada.");
+        }
+
+        for (String fileName : REQUIRED_FILES) {
+            File file = new File(DB_FOLDER + fileName);
+            if (!file.exists()) {
+                try {
+                    FileWriter writer = new FileWriter(file);
+                    writer.write("");  // Crear archivo vacío
+                    writer.close();
+                    System.out.println("Archivo creado: " + fileName);
+                } catch (IOException e) {
+                    System.err.println("Error al crear el archivo: " + fileName);
+                }
+            }
+        }
+    }
+}
+
+// Clase principal Main
+public class Main {
+    public static void main(String[] args) {
+        // Validar archivos de la base de datos
+        DatabaseValidator.validarYGenerarArchivos();
+
+        // Crear objetos de ejemplo
+        Doctor doctor = new Doctor("Dr. Pérez", "Cardiología");
+        Paciente paciente = new Paciente("Ana Gómez", 30);
+        LocalDate fechaCita = LocalDate.of(2025, 6, 10);
+
+        // Agendar una cita
+        Cita cita = new Cita(doctor, paciente, fechaCita);
+        cita.agendarCita();
+
+        // Mostrar información
+        doctor.mostrarInformacion();
+        paciente.mostrarInformacion();
+    }
+}
+
+
+
+
+
+
 db/
  ├── doctores.json
  ├── pacientes.json
